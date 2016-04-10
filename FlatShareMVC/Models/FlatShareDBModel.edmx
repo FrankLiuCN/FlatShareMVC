@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FlatShareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Outlay">
+          <Key>
+            <PropertyRef Name="oId" />
+          </Key>
+          <Property Name="oId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oTotalMoney" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="opiId" Type="int" Nullable="false" />
+          <Property Name="oDate" Type="date" Nullable="false" />
+          <Property Name="oRemark" Type="nvarchar" MaxLength="250" />
+          <Property Name="oDeleted" Type="bit" />
+          <Property Name="oUpdatedBy" Type="int" Nullable="false" />
+          <Property Name="oUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OutlayLine">
+          <Key>
+            <PropertyRef Name="olId" />
+          </Key>
+          <Property Name="olId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oluaId" Type="int" />
+          <Property Name="olPayMoney" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="olRemark" Type="nvarchar" MaxLength="250" />
+          <Property Name="olDelete" Type="bit" />
+          <Property Name="olUpdatedBy" Type="int" />
+          <Property Name="olUpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PayItem">
+          <Key>
+            <PropertyRef Name="piId" />
+          </Key>
+          <Property Name="piId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="piName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="piRemark" Type="nvarchar" MaxLength="250" />
+          <Property Name="piDeleted" Type="bit" />
+          <Property Name="piUpdatedBy" Type="int" />
+          <Property Name="piUpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="uaId" />
+          </Key>
+          <Property Name="uaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uaUserName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="uaLoginName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="uaPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="uaTelephone" Type="nvarchar" MaxLength="20" />
+          <Property Name="uaEnable" Type="bit" />
+          <Property Name="uaRemark" Type="nvarchar" MaxLength="250" />
+          <Property Name="uaDeleted" Type="bit" />
+          <Property Name="uaUpdatedBy" Type="int" Nullable="false" />
+          <Property Name="uaUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FlatShareModelStoreContainer">
+          <EntitySet Name="Outlay" EntityType="Self.Outlay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OutlayLine" EntityType="Self.OutlayLine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayItem" EntityType="Self.PayItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlatShareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Outlay">
+          <Key>
+            <PropertyRef Name="oId" />
+          </Key>
+          <Property Name="oId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oTotalMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="opiId" Type="Int32" Nullable="false" />
+          <Property Name="oDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="oRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="oDeleted" Type="Boolean" />
+          <Property Name="oUpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="oUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="OutlayLine">
+          <Key>
+            <PropertyRef Name="olId" />
+          </Key>
+          <Property Name="olId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oluaId" Type="Int32" />
+          <Property Name="olPayMoney" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="olRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="olDelete" Type="Boolean" />
+          <Property Name="olUpdatedBy" Type="Int32" />
+          <Property Name="olUpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PayItem">
+          <Key>
+            <PropertyRef Name="piId" />
+          </Key>
+          <Property Name="piId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="piName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="piRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="piDeleted" Type="Boolean" />
+          <Property Name="piUpdatedBy" Type="Int32" />
+          <Property Name="piUpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="uaId" />
+          </Key>
+          <Property Name="uaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uaUserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uaLoginName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uaPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uaTelephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="uaRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="uaDeleted" Type="Boolean" />
+          <Property Name="uaUpdatedBy" Type="Int32" Nullable="false" />
+          <Property Name="uaUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="uaEnable" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="FlatShareEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Outlay" EntityType="Self.Outlay" />
+          <EntitySet Name="OutlayLine" EntityType="Self.OutlayLine" />
+          <EntitySet Name="PayItem" EntityType="Self.PayItem" />
+          <EntitySet Name="UserAccount" EntityType="Self.UserAccount" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlatShareModelStoreContainer" CdmEntityContainer="FlatShareEntities">
+          <EntitySetMapping Name="Outlay">
+            <EntityTypeMapping TypeName="FlatShareModel.Outlay">
+              <MappingFragment StoreEntitySet="Outlay">
+                <ScalarProperty Name="oId" ColumnName="oId" />
+                <ScalarProperty Name="oTotalMoney" ColumnName="oTotalMoney" />
+                <ScalarProperty Name="opiId" ColumnName="opiId" />
+                <ScalarProperty Name="oDate" ColumnName="oDate" />
+                <ScalarProperty Name="oRemark" ColumnName="oRemark" />
+                <ScalarProperty Name="oDeleted" ColumnName="oDeleted" />
+                <ScalarProperty Name="oUpdatedBy" ColumnName="oUpdatedBy" />
+                <ScalarProperty Name="oUpdatedDate" ColumnName="oUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutlayLine">
+            <EntityTypeMapping TypeName="FlatShareModel.OutlayLine">
+              <MappingFragment StoreEntitySet="OutlayLine">
+                <ScalarProperty Name="olId" ColumnName="olId" />
+                <ScalarProperty Name="oluaId" ColumnName="oluaId" />
+                <ScalarProperty Name="olPayMoney" ColumnName="olPayMoney" />
+                <ScalarProperty Name="olRemark" ColumnName="olRemark" />
+                <ScalarProperty Name="olDelete" ColumnName="olDelete" />
+                <ScalarProperty Name="olUpdatedBy" ColumnName="olUpdatedBy" />
+                <ScalarProperty Name="olUpdatedDate" ColumnName="olUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayItem">
+            <EntityTypeMapping TypeName="FlatShareModel.PayItem">
+              <MappingFragment StoreEntitySet="PayItem">
+                <ScalarProperty Name="piId" ColumnName="piId" />
+                <ScalarProperty Name="piName" ColumnName="piName" />
+                <ScalarProperty Name="piRemark" ColumnName="piRemark" />
+                <ScalarProperty Name="piDeleted" ColumnName="piDeleted" />
+                <ScalarProperty Name="piUpdatedBy" ColumnName="piUpdatedBy" />
+                <ScalarProperty Name="piUpdatedDate" ColumnName="piUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAccount">
+            <EntityTypeMapping TypeName="FlatShareModel.UserAccount">
+              <MappingFragment StoreEntitySet="UserAccount">
+                <ScalarProperty Name="uaEnable" ColumnName="uaEnable" />
+                <ScalarProperty Name="uaId" ColumnName="uaId" />
+                <ScalarProperty Name="uaUserName" ColumnName="uaUserName" />
+                <ScalarProperty Name="uaLoginName" ColumnName="uaLoginName" />
+                <ScalarProperty Name="uaPassword" ColumnName="uaPassword" />
+                <ScalarProperty Name="uaTelephone" ColumnName="uaTelephone" />
+                <ScalarProperty Name="uaRemark" ColumnName="uaRemark" />
+                <ScalarProperty Name="uaDeleted" ColumnName="uaDeleted" />
+                <ScalarProperty Name="uaUpdatedBy" ColumnName="uaUpdatedBy" />
+                <ScalarProperty Name="uaUpdatedDate" ColumnName="uaUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

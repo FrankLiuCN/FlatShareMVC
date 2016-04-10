@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FlatShareModelStoreContainer" CdmEntityContainer="FlatShareEntities">
+    <EntitySetMapping Name="Outlay">
+      <EntityTypeMapping TypeName="FlatShareModel.Outlay">
+        <MappingFragment StoreEntitySet="Outlay">
+          <ScalarProperty Name="oId" ColumnName="oId" />
+          <ScalarProperty Name="oTotalMoney" ColumnName="oTotalMoney" />
+          <ScalarProperty Name="opiId" ColumnName="opiId" />
+          <ScalarProperty Name="oDate" ColumnName="oDate" />
+          <ScalarProperty Name="oRemark" ColumnName="oRemark" />
+          <ScalarProperty Name="oDeleted" ColumnName="oDeleted" />
+          <ScalarProperty Name="oUpdatedBy" ColumnName="oUpdatedBy" />
+          <ScalarProperty Name="oUpdatedDate" ColumnName="oUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutlayLine">
+      <EntityTypeMapping TypeName="FlatShareModel.OutlayLine">
+        <MappingFragment StoreEntitySet="OutlayLine">
+          <ScalarProperty Name="olId" ColumnName="olId" />
+          <ScalarProperty Name="oluaId" ColumnName="oluaId" />
+          <ScalarProperty Name="olPayMoney" ColumnName="olPayMoney" />
+          <ScalarProperty Name="olRemark" ColumnName="olRemark" />
+          <ScalarProperty Name="olDelete" ColumnName="olDelete" />
+          <ScalarProperty Name="olUpdatedBy" ColumnName="olUpdatedBy" />
+          <ScalarProperty Name="olUpdatedDate" ColumnName="olUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayItem">
+      <EntityTypeMapping TypeName="FlatShareModel.PayItem">
+        <MappingFragment StoreEntitySet="PayItem">
+          <ScalarProperty Name="piId" ColumnName="piId" />
+          <ScalarProperty Name="piName" ColumnName="piName" />
+          <ScalarProperty Name="piRemark" ColumnName="piRemark" />
+          <ScalarProperty Name="piDeleted" ColumnName="piDeleted" />
+          <ScalarProperty Name="piUpdatedBy" ColumnName="piUpdatedBy" />
+          <ScalarProperty Name="piUpdatedDate" ColumnName="piUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccount">
+      <EntityTypeMapping TypeName="FlatShareModel.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="uaEnable" ColumnName="uaEnable" />
+          <ScalarProperty Name="uaId" ColumnName="uaId" />
+          <ScalarProperty Name="uaUserName" ColumnName="uaUserName" />
+          <ScalarProperty Name="uaLoginName" ColumnName="uaLoginName" />
+          <ScalarProperty Name="uaPassword" ColumnName="uaPassword" />
+          <ScalarProperty Name="uaTelephone" ColumnName="uaTelephone" />
+          <ScalarProperty Name="uaRemark" ColumnName="uaRemark" />
+          <ScalarProperty Name="uaDeleted" ColumnName="uaDeleted" />
+          <ScalarProperty Name="uaUpdatedBy" ColumnName="uaUpdatedBy" />
+          <ScalarProperty Name="uaUpdatedDate" ColumnName="uaUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

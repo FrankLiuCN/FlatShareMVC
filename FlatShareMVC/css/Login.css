@@ -1,0 +1,20 @@
+﻿.login-panel {
+    position: absolute;
+    top: 50%;
+    margin-top: -122px;
+}
+
+@media screen and (max-width: 500px) {
+    .login-panel {
+        width: 98%;
+        left: 1%;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .login-panel {
+        width: 400px;
+        left: 50%;
+        margin-left: -200px;
+    }
+}

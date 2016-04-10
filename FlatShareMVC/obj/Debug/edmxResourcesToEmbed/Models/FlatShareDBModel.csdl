@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlatShareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Outlay">
+    <Key>
+      <PropertyRef Name="oId" />
+    </Key>
+    <Property Name="oId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="oTotalMoney" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="opiId" Type="Int32" Nullable="false" />
+    <Property Name="oDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="oRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="oDeleted" Type="Boolean" />
+    <Property Name="oUpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="oUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="OutlayLine">
+    <Key>
+      <PropertyRef Name="olId" />
+    </Key>
+    <Property Name="olId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="oluaId" Type="Int32" />
+    <Property Name="olPayMoney" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="olRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="olDelete" Type="Boolean" />
+    <Property Name="olUpdatedBy" Type="Int32" />
+    <Property Name="olUpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PayItem">
+    <Key>
+      <PropertyRef Name="piId" />
+    </Key>
+    <Property Name="piId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="piName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="piRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="piDeleted" Type="Boolean" />
+    <Property Name="piUpdatedBy" Type="Int32" />
+    <Property Name="piUpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="uaId" />
+    </Key>
+    <Property Name="uaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="uaUserName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="uaLoginName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="uaPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="uaTelephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="uaRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="uaDeleted" Type="Boolean" />
+    <Property Name="uaUpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="uaUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="uaEnable" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="FlatShareEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Outlay" EntityType="Self.Outlay" />
+    <EntitySet Name="OutlayLine" EntityType="Self.OutlayLine" />
+    <EntitySet Name="PayItem" EntityType="Self.PayItem" />
+    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" />
+  </EntityContainer>
+</Schema>
