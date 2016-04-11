@@ -1,11 +1,11 @@
 ﻿html {
     height: 100%;
+    overflow: hidden;
 }
 
 body {
     height: 100%;
     overflow: hidden;
-    background-color: gray;
 }
 
 .navbar {
@@ -16,6 +16,7 @@ body {
     .navbar-header {
         float: none;
     }
+
         .navbar-header .navbar-nav > li > a {
             text-align: center;
         }

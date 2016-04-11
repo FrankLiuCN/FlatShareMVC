@@ -2,6 +2,15 @@
     margin-bottom: 5px;
 }
 
+.hover {
+    background-color:#f8f8f8;
+}
+
+.active {
+    background-color:#08c;
+    color:#fff;
+}
+
     .list-group > div {
         border-bottom: 1px solid #e7e7e7;
         padding: 0 5px 0 5px;

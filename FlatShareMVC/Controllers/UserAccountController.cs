@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using FlatShareMVC.App_Code;
+using Newtonsoft.Json;
 
 namespace FlatShareMVC.Controllers
 {
@@ -39,6 +40,7 @@ namespace FlatShareMVC.Controllers
                     else
                         Utils.RemoveLoginInfoCookie();
                     System.Web.Security.FormsAuthentication.SetAuthCookie(account.uaUserName, false);
+                    Session["CurrentUser"] = account;
                     return AjaxResult("success", "登录成功");
                 }
                 else
@@ -62,5 +64,51 @@ namespace FlatShareMVC.Controllers
 
         }
 
+        public ActionResult GetUserList()
+        {
+            return Content(JsonConvert.SerializeObject(db.UserAccount.Where(u => u.uaDeleted != true)));
+        }
+
+        public ActionResult AddUser(UserAccount account)
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                if (!ModelState.IsValid)
+                {
+                    return AjaxResult("error", "数据格式不正确");
+                }
+                UserAccount currentUser = Session["CurrentUser"] as UserAccount;
+                account.uaUpdatedBy = currentUser.uaId;
+                account.uaUpdatedDate = DateTime.Now;
+                db.UserAccount.Add(account);
+                db.SaveChanges();
+                return AjaxResult("success", "添加成功");
+            }
+            else
+            {
+                return AjaxResult("error", "未登陆");
+            }
+        }
+
+        public ActionResult DeleteUser(string loginName)
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                //if (!ModelState.IsValid)
+                //{
+                //    return AjaxResult("error", "数据格式不正确");
+                //}
+                //UserAccount currentUser = Session["CurrentUser"] as UserAccount;
+                //account.uaUpdatedBy = currentUser.uaId;
+                //account.uaUpdatedDate = DateTime.Now;
+                //db.UserAccount.Add(account);
+                //db.SaveChanges();
+                return AjaxResult("success", "删除成功");
+            }
+            else
+            {
+                return AjaxResult("error", "未登陆");
+            }
+        }
     }
 }
