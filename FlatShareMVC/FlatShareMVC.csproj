@@ -172,7 +172,9 @@
     <Content Include="css\default.css" />
     <Content Include="css\Home.css" />
     <Content Include="css\Login.css" />
+    <Content Include="css\UserAccount.css" />
     <Content Include="Global.asax" />
+    <Content Include="Models\FlatShareDBModel.edmx.sql" />
     <Content Include="scripts\common.js" />
     <Content Include="scripts\Home.js" />
     <Content Include="scripts\jquery-1.11.3.min.js" />

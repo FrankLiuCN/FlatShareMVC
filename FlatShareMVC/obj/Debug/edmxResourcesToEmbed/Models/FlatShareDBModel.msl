@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="FlatShareModelStoreContainer" CdmEntityContainer="FlatShareEntities">
     <EntitySetMapping Name="Outlay">
-      <EntityTypeMapping TypeName="FlatShareModel.Outlay">
+      <EntityTypeMapping TypeName="IsTypeOf(FlatShareModel.Outlay)">
         <MappingFragment StoreEntitySet="Outlay">
           <ScalarProperty Name="oId" ColumnName="oId" />
           <ScalarProperty Name="oTotalMoney" ColumnName="oTotalMoney" />
@@ -16,7 +16,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="OutlayLine">
-      <EntityTypeMapping TypeName="FlatShareModel.OutlayLine">
+      <EntityTypeMapping TypeName="IsTypeOf(FlatShareModel.OutlayLine)">
         <MappingFragment StoreEntitySet="OutlayLine">
           <ScalarProperty Name="olId" ColumnName="olId" />
           <ScalarProperty Name="oluaId" ColumnName="oluaId" />
@@ -29,7 +29,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PayItem">
-      <EntityTypeMapping TypeName="FlatShareModel.PayItem">
+      <EntityTypeMapping TypeName="IsTypeOf(FlatShareModel.PayItem)">
         <MappingFragment StoreEntitySet="PayItem">
           <ScalarProperty Name="piId" ColumnName="piId" />
           <ScalarProperty Name="piName" ColumnName="piName" />
@@ -41,9 +41,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserAccount">
-      <EntityTypeMapping TypeName="FlatShareModel.UserAccount">
+      <EntityTypeMapping TypeName="IsTypeOf(FlatShareModel.UserAccount)">
         <MappingFragment StoreEntitySet="UserAccount">
-          <ScalarProperty Name="uaEnable" ColumnName="uaEnable" />
           <ScalarProperty Name="uaId" ColumnName="uaId" />
           <ScalarProperty Name="uaUserName" ColumnName="uaUserName" />
           <ScalarProperty Name="uaLoginName" ColumnName="uaLoginName" />
@@ -53,6 +52,7 @@
           <ScalarProperty Name="uaDeleted" ColumnName="uaDeleted" />
           <ScalarProperty Name="uaUpdatedBy" ColumnName="uaUpdatedBy" />
           <ScalarProperty Name="uaUpdatedDate" ColumnName="uaUpdatedDate" />
+          <ScalarProperty Name="uaEnable" ColumnName="uaEnable" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

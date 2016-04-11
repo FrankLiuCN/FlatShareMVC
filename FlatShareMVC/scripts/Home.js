@@ -5,7 +5,7 @@
 }
 
 function logout() {
-   window.location.href = "/UserAccount/Login";
+    window.location.href = "/UserAccount/Login";
 }
 
 $(function () {
@@ -14,6 +14,13 @@ $(function () {
             $(this).siblings().removeClass("active");
             $(this).addClass("active");
             openPage($(this).attr("data-code"));
+
+            $(".navbar-title").html($(this)[0].innerText);
         }
+        $(".navbar-offcanvas-fade").removeClass("in");
     });
+    $(".navbar-offcanvas-fade").click(function () {
+        $(".navbar-offcanvas-fade").removeClass("in");
+    });
+
 });

@@ -1,15 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="FlatShareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="FlatShareModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="FlatShareModelStoreContainer">
+    <EntitySet Name="Outlay" EntityType="FlatShareModel.Store.Outlay" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OutlayLine" EntityType="FlatShareModel.Store.OutlayLine" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PayItem" EntityType="FlatShareModel.Store.PayItem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserAccount" EntityType="FlatShareModel.Store.UserAccount" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
   <EntityType Name="Outlay">
     <Key>
       <PropertyRef Name="oId" />
     </Key>
     <Property Name="oId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="oTotalMoney" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="oTotalMoney" Type="decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="opiId" Type="int" Nullable="false" />
-    <Property Name="oDate" Type="date" Nullable="false" />
-    <Property Name="oRemark" Type="nvarchar" MaxLength="250" />
-    <Property Name="oDeleted" Type="bit" />
+    <Property Name="oDate" Type="datetime" Nullable="false" />
+    <Property Name="oRemark" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="oDeleted" Type="bit" Nullable="true" />
     <Property Name="oUpdatedBy" Type="int" Nullable="false" />
     <Property Name="oUpdatedDate" Type="datetime" Nullable="false" />
   </EntityType>
@@ -18,43 +24,37 @@
       <PropertyRef Name="olId" />
     </Key>
     <Property Name="olId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="oluaId" Type="int" />
-    <Property Name="olPayMoney" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="olRemark" Type="nvarchar" MaxLength="250" />
-    <Property Name="olDelete" Type="bit" />
-    <Property Name="olUpdatedBy" Type="int" />
-    <Property Name="olUpdatedDate" Type="datetime" />
+    <Property Name="oluaId" Type="int" Nullable="true" />
+    <Property Name="olPayMoney" Type="decimal" Nullable="true" Precision="18" Scale="2" />
+    <Property Name="olRemark" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="olDelete" Type="bit" Nullable="true" />
+    <Property Name="olUpdatedBy" Type="int" Nullable="true" />
+    <Property Name="olUpdatedDate" Type="datetime" Nullable="true" />
   </EntityType>
   <EntityType Name="PayItem">
     <Key>
       <PropertyRef Name="piId" />
     </Key>
     <Property Name="piId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="piName" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="piRemark" Type="nvarchar" MaxLength="250" />
-    <Property Name="piDeleted" Type="bit" />
-    <Property Name="piUpdatedBy" Type="int" />
-    <Property Name="piUpdatedDate" Type="datetime" />
+    <Property Name="piName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="piRemark" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="piDeleted" Type="bit" Nullable="true" />
+    <Property Name="piUpdatedBy" Type="int" Nullable="true" />
+    <Property Name="piUpdatedDate" Type="datetime" Nullable="true" />
   </EntityType>
   <EntityType Name="UserAccount">
     <Key>
       <PropertyRef Name="uaId" />
     </Key>
     <Property Name="uaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="uaUserName" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="uaLoginName" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="uaPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="uaTelephone" Type="nvarchar" MaxLength="20" />
-    <Property Name="uaEnable" Type="bit" />
-    <Property Name="uaRemark" Type="nvarchar" MaxLength="250" />
-    <Property Name="uaDeleted" Type="bit" />
+    <Property Name="uaUserName" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="uaLoginName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="uaPassword" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="uaTelephone" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="uaRemark" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="uaDeleted" Type="bit" Nullable="true" />
     <Property Name="uaUpdatedBy" Type="int" Nullable="false" />
     <Property Name="uaUpdatedDate" Type="datetime" Nullable="false" />
+    <Property Name="uaEnable" Type="bit" Nullable="true" />
   </EntityType>
-  <EntityContainer Name="FlatShareModelStoreContainer">
-    <EntitySet Name="Outlay" EntityType="Self.Outlay" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="OutlayLine" EntityType="Self.OutlayLine" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PayItem" EntityType="Self.PayItem" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
-  </EntityContainer>
 </Schema>
