@@ -4,9 +4,10 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/Common.css" rel="stylesheet" />
     <link href="~/css/UserAccount.css" rel="stylesheet" />
 </head>
-<body>
+<body onload="loginCheck()">
     <div class="list-group">
         <div class="list-title">
             <div><h4>登录名</h4></div>
@@ -15,21 +16,35 @@
             <div><h4>是否启用</h4></div>
             <div><h4>添加时间</h4></div>
         </div>
-        <div>
+        <div class="list-content">
             <div><h5>登 录 名：</h5>frank</div>
             <div><h5>姓 名：</h5>刘超帅</div>
             <div><h5>手 机 号：</h5>13558035342</div>
             <div><h5>是否启用：</h5>是</div>
             <div><h5>添加时间：</h5>2016-04-10 22:30:00</div>
         </div>
-        <div>
+        <div class="list-content">
             <div><h5>登 录 名：</h5>frank</div>
             <div><h5>姓    名：</h5>刘超帅</div>
             <div><h5>手 机 号：</h5>13558035342</div>
             <div><h5>是否启用：</h5>是</div>
             <div><h5>添加时间：</h5>2016-04-10 22:30:00</div>
         </div>
-        <div>
+        <div class="list-content">
+            <div><h5>登 录 名：</h5>frank</div>
+            <div><h5>姓    名：</h5>刘超帅</div>
+            <div><h5>手 机 号：</h5>13558035342</div>
+            <div><h5>是否启用：</h5>是</div>
+            <div><h5>添加时间：</h5>2016-04-10 22:30:00</div>
+        </div>
+        <div class="list-content">
+            <div><h5>登 录 名：</h5>frank</div>
+            <div><h5>姓    名：</h5>刘超帅</div>
+            <div><h5>手 机 号：</h5>13558035342</div>
+            <div><h5>是否启用：</h5>是</div>
+            <div><h5>添加时间：</h5>2016-04-10 22:30:00</div>
+        </div>
+        <div class="list-content">
             <div><h5>登 录 名：</h5>frank</div>
             <div><h5>姓    名：</h5>刘超帅</div>
             <div><h5>手 机 号：</h5>13558035342</div>
@@ -37,7 +52,22 @@
             <div><h5>添加时间：</h5>2016-04-10 22:30:00</div>
         </div>
     </div>
+    <div class="cover"></div>
+    <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">添加</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">编辑</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default">删除</button>
+        </div>
+    </div>
+
     <script src="/scripts/jquery-1.11.3.min.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/scripts/common.js"></script>
+    <script src="~/scripts/UserAccount.js"></script>
 </body>
 </html>

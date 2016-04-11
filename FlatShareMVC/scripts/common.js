@@ -20,3 +20,16 @@ function getCookieParam(cookieValue, name) {
     if (r != null) return unescape(r[2]);
     return null;
 }
+function loginCheck(callback) {
+    $.get("/UserAccount/LoginCheck", {}, function (data) {
+        var result = eval("(" + data + ")");
+        if (result.state == "success") {
+            if (callback) {
+                callback(result.content);
+            }
+        }
+        else {
+            window.location.href = "/UserAccount/Login";
+        }
+    });
+}

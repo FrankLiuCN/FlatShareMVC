@@ -38,12 +38,26 @@ namespace FlatShareMVC.Controllers
                         Utils.SetLoginInfoCookie(account, 30);
                     else
                         Utils.RemoveLoginInfoCookie();
+                    System.Web.Security.FormsAuthentication.SetAuthCookie(account.uaUserName, false);
                     return AjaxResult("success", "登录成功");
                 }
                 else
                 {
                     return AjaxResult("error", "登录失败，账号未启用");
                 }
+            }
+
+        }
+
+        public ActionResult LoginCheck()
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                return AjaxResult("success", HttpContext.User.Identity.Name);
+            }
+            else
+            {
+                return AjaxResult("error", "未登陆");
             }
 
         }

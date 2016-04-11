@@ -1,13 +1,28 @@
-﻿@media screen and (max-width: 767px) {
+﻿html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    background-color: gray;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
     .navbar-header {
         float: none;
     }
         .navbar-header .navbar-nav > li > a {
-            text-align:center;
+            text-align: center;
         }
+
     .navbar-offcanvas {
-        width:200px;
-        overflow:hidden;
+        width: 200px;
+        overflow: hidden;
     }
 }
 
@@ -17,10 +32,26 @@
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .container-fluid, .content-wrapper {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .container-fluid, .content-wrapper {
+        width: 1024px;
+    }
+
+    .content-wrapper {
+        margin: 0 auto;
+    }
+}
+
 .navbar-title {
-    text-align:center;
+    text-align: center;
 }
 
 .content-wrapper {
-  
+    height: 100%;
 }

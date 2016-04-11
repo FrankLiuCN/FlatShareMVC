@@ -1,0 +1,57 @@
+﻿.list-group {
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+    .list-group > li > div:first-child {
+        float: left;
+        width: calc(100% - 60px);
+    }
+
+    .list-group > li > div:last-child {
+        float: right;
+        width: 50px;
+    }
+
+    .list-group > li > div > button {
+        margin: 5px 0;
+    }
+
+.list-group-item {
+    width: 24%;
+    width: -moz-calc(25% - 5px);
+    width: -webkit-calc(25% - 5px);
+    width: calc(25% -5px);
+    float: left;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+
+@media screen and (max-width: 900px) {
+    .list-group-item {
+        width: 32%;
+        width: -moz-calc(33.33% - 5px);
+        width: -webkit-calc(33.33% - 5px);
+        width: calc(33.33% - 5px);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .list-group-item {
+        width: 49%;
+        width: -moz-calc(50% - 5px);
+        width: -webkit-calc(50% - 5px);
+        width: calc(50% - 5px);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .list-group-item {
+        width: 99%;
+        width: -moz-calc(100% - 5px);
+        width: -webkit-calc(100% - 5px);
+        width: calc(100% - 5px);
+    }
+}

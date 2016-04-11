@@ -1,6 +1,7 @@
 ﻿function openPage(pageCode) {
+    var iframeHeight = $(window).height() - $(".navbar").height();
     var src = "/" + pageCode + "/Index";
-    var content = '<iframe src="' + src + '" width="100%" height="' + ($(window).height() - 120) + '" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe>';
+    var content = '<iframe id="homeIframe" src="' + src + '" width="100%" height="' + iframeHeight + '" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe>';
     $(".content-wrapper").html(content);
 }
 
@@ -23,4 +24,12 @@ $(function () {
         $(".navbar-offcanvas-fade").removeClass("in");
     });
 
+    $(window).resize(function () {
+        $("#homeIframe").attr('height', $(window).height() - $(".navbar").height());
+    });
 });
+
+function setUserName(userName) {
+    $("#lblUserName").html(userName);
+
+}
