@@ -29,7 +29,16 @@ function loginCheck(callback) {
             }
         }
         else {
-            window.location.href = "/UserAccount/Login";
+            getTopWindow().location.href = "/UserAccount/Login";
         }
     });
+}
+
+function getTopWindow() {
+    if (window.top != window.self) {
+        return parent;
+    }
+    else {
+        return window;
+    }
 }

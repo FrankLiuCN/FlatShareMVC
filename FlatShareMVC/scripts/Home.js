@@ -16,7 +16,12 @@ $(function () {
             $(this).addClass("active");
             openPage($(this).attr("data-code"));
 
-            $(".navbar-title").html($(this)[0].innerText);
+            $("#btnHomeRight").click(function () {
+                var ifr = document.getElementById('homeIframe');
+                var win = ifr.window || ifr.contentWindow;
+                win.AddUserAccount(); // 调用iframe中的a函数
+            });
+            $(".navbar-title > span").html($(this)[0].innerText);
         }
         $(".navbar-offcanvas-fade").removeClass("in");
     });
@@ -27,6 +32,8 @@ $(function () {
     $(window).resize(function () {
         $("#homeIframe").attr('height', $(window).height() - $(".navbar").height());
     });
+
+
 });
 
 function setUserName(userName) {
