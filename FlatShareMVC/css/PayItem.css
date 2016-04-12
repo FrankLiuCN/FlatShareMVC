@@ -27,7 +27,9 @@
     margin-left: 5px;
     margin-bottom: 5px;
 }
-
+    .list-group-item:hover {
+        background-color:#f8f8f8;
+    }
     .list-group-item-text {
         margin-top:10px;
     }

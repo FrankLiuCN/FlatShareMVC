@@ -1,6 +1,7 @@
 ﻿$(function () {
     getUserList();
     $(".cover").click(function () {
+        $(".active").removeClass("active");
         hidEditPanel();
     });
 
@@ -126,7 +127,9 @@ function deleteUser() {
     $.post("/UserAccount/DeleteUser", parms, function (data) {
         var result = eval("(" + data + ")");
         if (result.state == "success") {
-            getUserList();
+            $(".list-group .active").slideToggle("slow", function () {
+                $(".list-group .active").remove();
+            });
             hidEditPanel();
         }
         else {

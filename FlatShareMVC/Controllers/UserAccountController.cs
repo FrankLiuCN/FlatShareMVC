@@ -79,7 +79,9 @@ namespace FlatShareMVC.Controllers
                 UserAccount currentUser = Session["CurrentUser"] as UserAccount;
                 account.uaUpdatedBy = currentUser.uaId;
                 account.uaUpdatedDate = DateTime.Now;
-                db.UserAccount.Add(account);
+                account.uaRemark = account.uaRemark == null ? "" : account.uaRemark;
+                account.uaTelephone = account.uaTelephone == null ? "" : account.uaTelephone;
+                db.Entry(account).State = EntityState.Modified;
                 db.SaveChanges();
                 return AjaxResult("success", "添加成功");
             }
@@ -101,6 +103,8 @@ namespace FlatShareMVC.Controllers
                 UserAccount currentUser = Session["CurrentUser"] as UserAccount;
                 account.uaUpdatedBy = currentUser.uaId;
                 account.uaUpdatedDate = DateTime.Now;
+                account.uaRemark = account.uaRemark == null ? "" : account.uaRemark;
+                account.uaTelephone = account.uaTelephone == null ? "" : account.uaTelephone;
                 db.UserAccount.Add(account);
                 db.SaveChanges();
                 return AjaxResult("success", "添加成功");

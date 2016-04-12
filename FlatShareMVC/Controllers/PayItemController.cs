@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,7 +24,7 @@ namespace FlatShareMVC.Controllers
             return Content(JsonConvert.SerializeObject(db.PayItem.Where(u => u.piDeleted != true)));
         }
 
-        public ActionResult EditUser(PayItem payItem)
+        public ActionResult EditPayItem(PayItem payItem)
         {
             if (HttpContext.User.Identity.IsAuthenticated)
             {
@@ -35,8 +36,10 @@ namespace FlatShareMVC.Controllers
                 UserAccount currentUser = Session["CurrentUser"] as UserAccount;
                 payItem.piUpdatedBy = currentUser.uaId;
                 payItem.piUpdatedDate = DateTime.Now;
-                db.PayItem.Add(payItem);
+                payItem.piRemark = payItem.piRemark == null ? "" : payItem.piRemark;
+                db.Entry(payItem).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return AjaxResult("success", "修改成功");
             }
             else
@@ -57,6 +60,7 @@ namespace FlatShareMVC.Controllers
                 UserAccount currentUser = Session["CurrentUser"] as UserAccount;
                 payItem.piUpdatedBy = currentUser.uaId;
                 payItem.piUpdatedDate = DateTime.Now;
+                payItem.piRemark = payItem.piRemark == null ? "" : payItem.piRemark;
                 db.PayItem.Add(payItem);
                 db.SaveChanges();
                 return AjaxResult("success", "添加成功");

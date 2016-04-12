@@ -1,4 +1,6 @@
-﻿$(function () {
+﻿var _piId;
+
+$(function () {
     getPayItemList();
     //$(document).on('scroll', function (e) {
     //    if ($(e.target).scrollTop() >= $(document).height() - $(window).height()) {
@@ -38,6 +40,7 @@ function editPayItem(obj) {
     $(".modal-title").html("编辑");
     $('#myModal').modal('show')
     var content = $(obj).parent().parent();
+    _piId = content.attr("data-piId");
     $("#txtPayItemName").val(content.find(".list-group-item-heading").html());
     $("#txtRemark").val(content.find(".list-group-item-text").html());
 }
@@ -63,8 +66,7 @@ function submit() {
             }
         })
     } else if ($(".modal-title").html() == "编辑") {
-        var uaId = $(".list-group .active").attr("data-uaId");
-        parms["uaId"] = uaId;
+        parms["piId"] = _piId;
         $.post("/PayItem/EditPayItem", parms, function (data) {
             var result = eval("(" + data + ")");
             if (result.state == "success") {
@@ -95,4 +97,11 @@ function deletePayItem(obj) {
             alert(result.content);
         }
     })
+}
+
+function addCheck() {
+    if ($("#txtPayItemName").val() == "") {
+        return false;
+    }
+    return true;
 }

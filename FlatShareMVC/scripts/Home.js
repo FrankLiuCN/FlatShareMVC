@@ -23,6 +23,8 @@ $(function () {
                     win.AddUser();
                 } else if (win.addPayItem) {
                     win.addPayItem();
+                } else if (win.addOutlay) {
+                    win.addOutlay();
                 }
 
             });
