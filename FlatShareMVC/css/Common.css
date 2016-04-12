@@ -1,26 +1,56 @@
-﻿.cover {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
-    display: none;
-    filter: alpha(opacity=60);
-    background-color: #777;
-    opacity: 0.5;
-    -moz-opacity: 0.5;
+﻿
+.show {
+    display: inline-block;
 }
 
-.btn-group-justified {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: none;
-}
-
-    .btn-group-justified button {
-        height: 50px;
+@media screen and (max-width: 767px) {
+    .btn-group-justified {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: none;
     }
+
+        .btn-group-justified button {
+            height: 50px;
+        }
+
+        .btn-group-justified > div:first-child {
+            display: none;
+        }
+
+    .cover {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        display: none;
+        filter: alpha(opacity=60);
+        background-color: #777;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .btn-group-justified {
+        position: relative;
+        width: 300px;
+        display: inline-block;
+    }
+
+        .btn-group-justified .btn-group {
+            padding-left: 10px;
+            padding-top: 10px;
+            width: 100px;
+        }
+
+        .btn-group-justified > div:first-child {
+            display: inline-block;
+            display: table-cell;
+        }
+}

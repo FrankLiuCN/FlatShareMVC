@@ -6,12 +6,12 @@ using System.Web;
 using System.Web.Mvc;
 using FlatShareMVC.App_Code;
 using Newtonsoft.Json;
+using System.Data.Entity;
 
 namespace FlatShareMVC.Controllers
 {
     public class UserAccountController : BaseController
     {
-        private FlatShareEntities db = new FlatShareEntities();
         //
         // GET: /UserAccount/
 
@@ -69,6 +69,26 @@ namespace FlatShareMVC.Controllers
             return Content(JsonConvert.SerializeObject(db.UserAccount.Where(u => u.uaDeleted != true)));
         }
 
+        public ActionResult EditUser(UserAccount account)
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                if (!ModelState.IsValid)
+                    return AjaxResult("error", "数据格式不正确");
+
+                UserAccount currentUser = Session["CurrentUser"] as UserAccount;
+                account.uaUpdatedBy = currentUser.uaId;
+                account.uaUpdatedDate = DateTime.Now;
+                db.UserAccount.Add(account);
+                db.SaveChanges();
+                return AjaxResult("success", "添加成功");
+            }
+            else
+            {
+                return AjaxResult("error", "未登陆");
+            }
+        }
+
         public ActionResult AddUser(UserAccount account)
         {
             if (HttpContext.User.Identity.IsAuthenticated)
@@ -91,19 +111,16 @@ namespace FlatShareMVC.Controllers
             }
         }
 
-        public ActionResult DeleteUser(string loginName)
+        public ActionResult DeleteUser(int uaId)
         {
             if (HttpContext.User.Identity.IsAuthenticated)
             {
-                //if (!ModelState.IsValid)
-                //{
-                //    return AjaxResult("error", "数据格式不正确");
-                //}
-                //UserAccount currentUser = Session["CurrentUser"] as UserAccount;
-                //account.uaUpdatedBy = currentUser.uaId;
-                //account.uaUpdatedDate = DateTime.Now;
-                //db.UserAccount.Add(account);
-                //db.SaveChanges();
+                UserAccount temp = db.UserAccount.Where(u => u.uaId == uaId).SingleOrDefault();
+                UserAccount currentUser = Session["CurrentUser"] as UserAccount;
+                temp.uaUpdatedBy = currentUser.uaId;
+                temp.uaUpdatedDate = DateTime.Now;
+                temp.uaDeleted = true;
+                db.SaveChanges();
                 return AjaxResult("success", "删除成功");
             }
             else

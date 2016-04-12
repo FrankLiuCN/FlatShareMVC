@@ -19,7 +19,12 @@ $(function () {
             $("#btnHomeRight").click(function () {
                 var ifr = document.getElementById('homeIframe');
                 var win = ifr.window || ifr.contentWindow;
-                win.AddUserAccount(); // 调用iframe中的a函数
+                if (win.AddUser) {
+                    win.AddUser();
+                } else if (win.addPayItem) {
+                    win.addPayItem();
+                }
+
             });
             $(".navbar-title > span").html($(this)[0].innerText);
         }

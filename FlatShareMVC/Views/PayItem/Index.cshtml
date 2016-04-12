@@ -7,61 +7,54 @@
     <link href="~/css/PayItem.css" rel="stylesheet" />
 </head>
 <body>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div>
-                <h4 class="list-group-item-heading">水电费</h4>
-                <p class="list-group-item-text">两个月一交两个月一交两个月一交两个月一交两个月一交</p>
-            </div>
-            <div>
-                <button class="btn btn-default">编辑</button>
-                <button class="btn btn-default">删除</button>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div>
-                <h4 class="list-group-item-heading">房租</h4>
-                <p class="list-group-item-text">三月一交</p>
-            </div>
-            <div>
-                <button class="btn btn-default">编辑</button>
-                <button class="btn btn-default">删除</button>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div>
-                <h4 class="list-group-item-heading">宽带费</h4>
-                <p class="list-group-item-text"></p>
-            </div>
-            <div>
-                <button class="btn btn-default">编辑</button>
-                <button class="btn btn-default">删除</button>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div>
-                <h4 class="list-group-item-heading">房租</h4>
-                <p class="list-group-item-text">三月一交</p>
-            </div>
-            <div>
-                <button class="btn btn-default">编辑</button>
-                <button class="btn btn-default">删除</button>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div>
-                <h4 class="list-group-item-heading">房租</h4>
-                <p class="list-group-item-text">三月一交</p>
-            </div>
-            <div>
-                <button class="btn btn-default">编辑</button>
-                <button class="btn btn-default">删除</button>
-            </div>
-        </li>
-        <li style="clear:both;height:1px;"></li>
-    </ul>
-    <script src="/scripts/jquery-1.11.3.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <script src="~/scripts/common.js"></script>
+    <ul class="list-group"></ul>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        新增
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label>
+                                支出项名称:
+                                <input type="text" class="form-control" id="txtPayItemName" />
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label>
+                                备注:
+                                <input type="text" class="form-control" id="txtRemark" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="submit();">
+                            提交
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <script src="/scripts/jquery-1.11.3.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/scripts/common.js"></script>
+        <script src="~/scripts/PayItem.js"></script>
 </body>
 </html>

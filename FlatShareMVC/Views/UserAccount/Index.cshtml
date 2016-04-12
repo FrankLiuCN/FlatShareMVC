@@ -8,18 +8,22 @@
     <link href="~/css/UserAccount.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" onclick="AddUser()">添加</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" onclick="editUser()">编辑</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-danger" onclick="deleteUser()">删除</button>
+        </div>
+    </div>
     <div class="list-group">
 
     </div>
     <div class="cover"></div>
-    <div class="btn-group btn-group-justified" role="group">
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">编辑</button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">删除</button>
-        </div>
-    </div>
+
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
@@ -38,28 +42,30 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <label>
-                                姓名:
-                                <input type="text" class="form-control" id="txtUserName"/>
+                                登录名:
+                                <input type="text" class="form-control" id="txtLoginName" />
                             </label>
                         </div>
                         <div class="col-xs-6">
+
                             <label>
-                                登录名:
-                                <input type="text" class="form-control" id="txtLoginName"/>
+                                姓名:
+                                <input type="text" class="form-control" id="txtUserName" />
                             </label>
                         </div>
+
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
                             <label>
                                 密码:
-                                <input type="text" class="form-control" id="txtPassword"/>
+                                <input type="password" class="form-control" id="txtPassword" />
                             </label>
                         </div>
                         <div class="col-xs-6">
                             <label>
                                 手机号:
-                                <input type="text" class="form-control" id="txtTelephone"/>
+                                <input type="text" class="form-control" id="txtTelephone" />
                             </label>
                         </div>
                     </div>
@@ -73,7 +79,7 @@
                         <div class="col-xs-6">
                             <label>
                                 备注:
-                                <input type="text" class="form-control" id="txtRemark"/>
+                                <input type="text" class="form-control" id="txtRemark" />
                             </label>
                         </div>
                     </div>
@@ -83,7 +89,7 @@
                             data-dismiss="modal">
                         关闭
                     </button>
-                    <button type="button" class="btn btn-primary" onclick="addUser();">
+                    <button type="button" class="btn btn-primary" onclick="submit();">
                         提交
                     </button>
                 </div>

@@ -1,31 +1,31 @@
 ﻿.list-group {
-    margin-bottom: 5px;
+    margin: 5px 0;
 }
 
 .hover {
-    background-color:#f8f8f8;
+    background-color: #f8f8f8;
 }
 
 .active {
-    background-color:#08c;
-    color:#fff;
+    background-color: #08c;
+    color: #fff;
 }
 
-    .list-group > div {
-        border-bottom: 1px solid #e7e7e7;
-        padding: 0 5px 0 5px;
-        cursor: pointer;
+.list-group > div {
+    border-bottom: 1px solid #e7e7e7;
+    padding: 0 5px 0 5px;
+    cursor: pointer;
+}
+
+    .list-group > div > div {
+        display: inline-block;
     }
 
-        .list-group > div > div {
+        .list-group > div > div > h5 {
             display: inline-block;
+            width: 72px;
+            font-weight: bold;
         }
-
-            .list-group > div > div > h5 {
-                display: inline-block;
-                width: 72px;
-                font-weight: bold;
-            }
 
 @media screen and (max-width: 767px) {
     .list-group > div > div {
@@ -37,6 +37,10 @@
         }
 
     .list-title {
+        display: none;
+    }
+
+    .btn-group-justified > button:first-child {
         display: none;
     }
 }
@@ -78,8 +82,7 @@
     }
 
     .list-group {
-        margin: 0 10px;
+        margin: 5px 10px;
         border: 1px solid #e7e7e7;
     }
 }
-

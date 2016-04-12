@@ -28,6 +28,10 @@
     margin-bottom: 5px;
 }
 
+    .list-group-item-text {
+        margin-top:10px;
+    }
+
 
 @media screen and (max-width: 900px) {
     .list-group-item {

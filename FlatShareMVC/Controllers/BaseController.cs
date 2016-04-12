@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlatShareMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace FlatShareMVC.Controllers
 {
     public class BaseController : Controller
     {
+        protected FlatShareEntities db = new FlatShareEntities();
+
         /// <summary>
         /// ajax请求结果
         /// </summary>
