@@ -74,9 +74,10 @@ namespace FlatShareMVC.Controllers
             if (HttpContext.User.Identity.IsAuthenticated)
             {
                 if (!ModelState.IsValid)
-                {
                     return AjaxResult("error", "数据格式不正确");
-                }
+                UserAccount temp = db.UserAccount.Where(u => u.uaLoginName == account.uaLoginName && u.uaDeleted != true).SingleOrDefault();
+                if (temp != null)
+                    return AjaxResult("error", "添加失败，已经存在此登录名");
                 UserAccount currentUser = Session["CurrentUser"] as UserAccount;
                 account.uaUpdatedBy = currentUser.uaId;
                 account.uaUpdatedDate = DateTime.Now;
