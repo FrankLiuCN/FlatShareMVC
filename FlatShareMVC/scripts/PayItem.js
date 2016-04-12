@@ -43,6 +43,39 @@ function editPayItem(obj) {
 }
 
 function submit() {
+    if (addCheck() != true) {
+        return;
+    }
+    var parms = new Object();
+    parms["piName"] = $("#txtPayItemName").val();
+    parms["piRemark"] = $("#txtRemark").val();
+
+
+    if ($(".modal-title").html() == "新增") {
+        $.post("/PayItem/AddPayItem", parms, function (data) {
+            var result = eval("(" + data + ")");
+            if (result.state == "success") {
+                getPayItemList();
+                $('#myModal').modal('hide');
+            }
+            else {
+                alert(result.content);
+            }
+        })
+    } else if ($(".modal-title").html() == "编辑") {
+        var uaId = $(".list-group .active").attr("data-uaId");
+        parms["uaId"] = uaId;
+        $.post("/PayItem/EditPayItem", parms, function (data) {
+            var result = eval("(" + data + ")");
+            if (result.state == "success") {
+                getPayItemList();
+                $('#myModal').modal('hide');
+            }
+            else {
+                alert(result.content);
+            }
+        })
+    }
 }
 
 function deletePayItem(obj) {
