@@ -3,16 +3,19 @@
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Datepicker/datepicker.css" rel="stylesheet" />
+    <link href="~/css/Common.css" rel="stylesheet" />
     <link href="~/css/UserAccount.css" rel="stylesheet" />
+    <link href="~/css/Outlay.css" rel="stylesheet" />
 </head>
 <body>
     <div class="btn-group btn-group-justified" role="group">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default" onclick="AddUser()">添加</button>
+            <button type="button" class="btn btn-default" onclick="addOutlay()">添加</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default" onclick="editUser()">编辑</button>
+            <button type="button" class="btn btn-default" onclick="showOutlayInfo()">查看</button>
         </div>
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-danger" onclick="deleteUser()">删除</button>
@@ -26,21 +29,17 @@
             <div><h4>支付日期</h4></div>
             <div><h4>备注</h4></div>
         </div>
-        <div>
-            <div><h5>支出名称：</h5>水电费</div>
-            <div><h5>支出金额：</h5>347.5</div>
-            <div><h5>支付人：</h5>刘超帅</div>
-            <div><h5>支付日期：</h5>2016-4-11</div>
-            <div><h5>备注：</h5>二三月份水电费</div>
-        </div>
+
 
     </div>
+    <div class="cover"></div>
+
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="padding:5px;">
                     <button type="button" class="close"
                             data-dismiss="modal" aria-hidden="true">
                         &times;
@@ -49,7 +48,7 @@
                         新增
                     </h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="padding:5px 5px 0 5px;margin-bottom:-10px;">
                     <div class="row">
                         <div class="col-xs-6">
                             <label>
@@ -62,23 +61,24 @@
                             <label>
                                 支出金额:
                             </label>
-                            <input type="text" class="form-control" id="txtUserName" />
+                            <input type="text" class="form-control" id="txtTotalMoney" />
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
                             <label>
+                                支付日期:
+                            </label>
+                            <input type="text" class="datepicker form-control" data-date-format="yyyy-mm-dd" readonly="readonly" id="txtDate" />
+                        </div>
+                        <div class="col-xs-6">
+                            <label>
                                 支付人:
                             </label>
                             <select class="form-control" id="cbxPayUser"></select>
                         </div>
-                        <div class="col-xs-6">
-                            <label>
-                                支付日期:
-                            </label>
-                            <input type="text" class="form-control" id="txtTelephone" />
-                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -97,7 +97,7 @@
                                 <thead>
                                     <tr>
                                         <th style="width:30px;">#</th>
-                                        <th style="width:75px;">人员</th>
+                                        <th style="width:80px;">人员</th>
                                         <th style="width:75px;">金额</th>
                                         <th>备注</th>
                                     </tr>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="padding:5px;">
                     <button type="button" class="btn btn-default"
                             data-dismiss="modal">
                         关闭
@@ -121,8 +121,9 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
-    <script src="/scripts/jquery-1.11.3.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Datepicker/bootstrap-datepicker.js"></script>
     <script src="~/scripts/common.js"></script>
     <script src="~/scripts/Outlay.js"></script>
 </body>

@@ -30,7 +30,6 @@ E:\GitProjects\FlatShareMVC\FlatShareMVC\bin\System.Web.WebPages.Deployment.xml
 E:\GitProjects\FlatShareMVC\FlatShareMVC\bin\System.Web.WebPages.Razor.xml
 E:\GitProjects\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.dll
 E:\GitProjects\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.pdb
-E:\GitProjects\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.csprojResolveAssemblyReference.cache
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\bin\App_Code\Utils.cs
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\bin\FlatShareMVC.dll.config
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\bin\FlatShareMVC.dll
@@ -64,3 +63,4 @@ C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\bin\System.Web.WebPages.Razor.xml
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.csprojResolveAssemblyReference.cache
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.dll
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.pdb
+E:\GitProjects\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.csprojResolveAssemblyReference.cache

@@ -148,6 +148,7 @@
     <Compile Include="Models\OutlayLine.cs">
       <DependentUpon>FlatShareDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OutlayInfoModel.cs" />
     <Compile Include="Models\PayItem.cs">
       <DependentUpon>FlatShareDBModel.tt</DependentUpon>
     </Compile>
@@ -174,8 +175,11 @@
     <Content Include="css\default.css" />
     <Content Include="css\Home.css" />
     <Content Include="css\Login.css" />
+    <Content Include="css\Outlay.css" />
     <Content Include="css\PayItem.css" />
     <Content Include="css\UserAccount.css" />
+    <Content Include="Datepicker\bootstrap-datepicker.js" />
+    <Content Include="Datepicker\datepicker.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\FlatShareDBModel.edmx.sql" />
     <Content Include="scripts\common.js" />

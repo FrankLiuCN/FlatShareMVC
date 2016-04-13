@@ -21,5 +21,6 @@ namespace FlatShareMVC.Models
         public Nullable<bool> olDelete { get; set; }
         public Nullable<int> olUpdatedBy { get; set; }
         public Nullable<System.DateTime> olUpdatedDate { get; set; }
+        public int oloId { get; set; }
     }
 }

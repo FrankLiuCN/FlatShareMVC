@@ -12,6 +12,7 @@
     <Property Name="oDeleted" Type="Boolean" />
     <Property Name="oUpdatedBy" Type="Int32" Nullable="false" />
     <Property Name="oUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ouaId" Type="Int32" />
   </EntityType>
   <EntityType Name="OutlayLine">
     <Key>
@@ -24,6 +25,7 @@
     <Property Name="olDelete" Type="Boolean" />
     <Property Name="olUpdatedBy" Type="Int32" />
     <Property Name="olUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="oloId" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="PayItem">
     <Key>

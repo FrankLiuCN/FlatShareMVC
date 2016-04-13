@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Outlay">
       <EntityTypeMapping TypeName="IsTypeOf(FlatShareModel.Outlay)">
         <MappingFragment StoreEntitySet="Outlay">
+          <ScalarProperty Name="ouaId" ColumnName="ouaId" />
           <ScalarProperty Name="oId" ColumnName="oId" />
           <ScalarProperty Name="oTotalMoney" ColumnName="oTotalMoney" />
           <ScalarProperty Name="opiId" ColumnName="opiId" />
@@ -18,6 +19,7 @@
     <EntitySetMapping Name="OutlayLine">
       <EntityTypeMapping TypeName="IsTypeOf(FlatShareModel.OutlayLine)">
         <MappingFragment StoreEntitySet="OutlayLine">
+          <ScalarProperty Name="oloId" ColumnName="oloId" />
           <ScalarProperty Name="olId" ColumnName="olId" />
           <ScalarProperty Name="oluaId" ColumnName="oluaId" />
           <ScalarProperty Name="olPayMoney" ColumnName="olPayMoney" />
