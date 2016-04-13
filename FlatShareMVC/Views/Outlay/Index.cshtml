@@ -7,6 +7,17 @@
     <link href="~/css/UserAccount.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" onclick="AddUser()">添加</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" onclick="editUser()">编辑</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-danger" onclick="deleteUser()">删除</button>
+        </div>
+    </div>
     <div class="list-group">
         <div class="list-title">
             <div><h4>支出名称</h4></div>
@@ -18,38 +29,11 @@
         <div>
             <div><h5>支出名称：</h5>水电费</div>
             <div><h5>支出金额：</h5>347.5</div>
-            <div><h5>支 付 人：</h5>刘超帅</div>
-            <div><h5>支付日期：</h5>2016-4-11</div>
-            <div><h5>备 注：</h5>二三月份水电费二三月份水电费二三月份水电费二三月份水电费二三月份水电费二三月份水电费</div>
-        </div>
-        <div style="background-color:#f8f8f8;">
-            <div><h5>支出名称：</h5>水电费</div>
-            <div><h5>支出金额：</h5>347.5</div>
             <div><h5>支付人：</h5>刘超帅</div>
             <div><h5>支付日期：</h5>2016-4-11</div>
             <div><h5>备注：</h5>二三月份水电费</div>
         </div>
-        <div>
-            <div><h5>支出名称：</h5>水电费</div>
-            <div><h5>支出金额：</h5>347.5</div>
-            <div><h5>支付人：</h5>刘超帅</div>
-            <div><h5>支付日期：</h5>2016-4-11</div>
-            <div><h5>备注：</h5>二三月份水电费</div>
-        </div>
-        <div>
-            <div><h5>支出名称：</h5>水电费</div>
-            <div><h5>支出金额：</h5>347.5</div>
-            <div><h5>支付人：</h5>刘超帅</div>
-            <div><h5>支付日期：</h5>2016-4-11</div>
-            <div><h5>备注：</h5>二三月份水电费</div>
-        </div>
-        <div>
-            <div><h5>支出名称：</h5>水电费</div>
-            <div><h5>支出金额：</h5>347.5</div>
-            <div><h5>支付人：</h5>刘超帅</div>
-            <div><h5>支付日期：</h5>2016-4-11</div>
-            <div><h5>备注：</h5>二三月份水电费</div>
-        </div>
+
     </div>
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -105,18 +89,25 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-4">
-                                选择
-                        </div>
-                        <div class="col-xs-3">
-                                个从应付
-                        </div>
-                        <div class="col-xs-5">
-                                备注
+                        <div class="col-xs-12">
+                            <label>
+                                详情:
+                            </label>
+                            <table class="table table-bordered details">
+                                <thead>
+                                    <tr>
+                                        <th style="width:30px;">#</th>
+                                        <th style="width:75px;">人员</th>
+                                        <th style="width:75px;">金额</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <div class="details"></div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"
