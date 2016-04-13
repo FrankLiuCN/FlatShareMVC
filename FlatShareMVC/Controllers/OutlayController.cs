@@ -84,7 +84,6 @@ namespace FlatShareMVC.Controllers
 
         public ActionResult AddOutlayInfo(string modelJson)
         {
-
             try
             {
                 OutlayInfoModel model = JsonConvert.DeserializeObject<OutlayInfoModel>(modelJson);
@@ -102,6 +101,10 @@ namespace FlatShareMVC.Controllers
                         foreach (OutlayLine line in model.OutlayLines)
                         {
                             line.oloId = outlay.oId;
+                            line.olUpdatedBy = currentUser.uaId;
+                            line.olUpdatedDate = DateTime.Now;
+                            db.OutlayLine.Add(line);
+                            db.SaveChanges();
                         }
 
                         scope.Complete();
@@ -117,6 +120,35 @@ namespace FlatShareMVC.Controllers
             catch (Exception ex)
             {
                 return AjaxResult("error", ex.Message);
+            }
+        }
+
+        public ActionResult DeleteOutlayInfo(int oId)
+        {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    Outlay temp = db.Outlay.Where(u => u.oId == oId).SingleOrDefault();
+                    UserAccount currentUser = Session["CurrentUser"] as UserAccount;
+                    temp.oUpdatedBy = currentUser.uaId;
+                    temp.oUpdatedDate = DateTime.Now;
+                    temp.oDeleted = true;
+                    var lines = db.OutlayLine.Where(u => u.oloId == oId);
+                    foreach (var item in lines)
+                    {
+                        item.olUpdatedBy = currentUser.uaId;
+                        item.olUpdatedDate = DateTime.Now;
+                        item.olDelete = true;
+                    }
+                    db.SaveChanges();
+                    scope.Complete();
+                }
+                return AjaxResult("success", "删除成功");
+            }
+            else
+            {
+                return AjaxResult("error", "未登陆");
             }
         }
     }

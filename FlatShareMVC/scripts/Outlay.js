@@ -1,5 +1,5 @@
 ﻿$(function () {
-    getOutlayList();
+    getOutlayList(10, 0, true);
     getPayItemList();
     getUserList();
     $(".cover").click(function () {
@@ -66,10 +66,19 @@ function getOutlayInfo(oId, callback) {
     });
 }
 
-function getOutlayList() {
-    $.post("/Outlay/GetOutlayList", {}, function (data) {
+function getOutlayList(take, skip, init) {
+    $.post("/Outlay/GetOutlayList", { take: take, skip: skip }, function (data) {
         var result = eval("(" + data + ")");
         var html = '';
+        if (init) {
+            html += '<div class="list-title">';
+            html += '<div><h4>支出名称</h4></div>';
+            html += '<div><h4>支出金额</h4></div>';
+            html += '<div><h4>支付人</h4></div>';
+            html += '<div><h4>支付日期</h4></div>';
+            html += '<div><h4>备注</h4></div>';
+            html += '</div>';
+        }
         for (var i = 0; i < result.length; i++) {
             var oDate = result[i].oDate.replace("T00:00:00", "");
             html += '<div class="list-content" data-oId="' + result[i].oId + '">';
@@ -80,7 +89,11 @@ function getOutlayList() {
             html += '<div><h5>备注：</h5>' + result[i].oRemark + '</div>';
             html += '</div>';
         }
-        $(html).appendTo($(".list-group"));
+        if (init) {
+            $(".list-group").html(html);
+        } else {
+            $(html).appendTo($(".list-group"));
+        }
         $(".list-content").dblclick(function () {
             var oId = $(this).attr("data-oId");
             showOutlayInfo(oId);
@@ -122,7 +135,7 @@ function showOutlayInfo(oId) {
         $("#txtRemark").val(outlay.oRemark);
 
         showDetails();
-        var html = '';
+        //var html = '';
 
         for (var i = 0; i < outlayLines.length; i++) {
             $(".details tbody tr").each(function () {
@@ -134,7 +147,7 @@ function showOutlayInfo(oId) {
                 }
             });
         }
-        $(html).appendTo($(".list-group"));
+        //$(html).appendTo($(".list-group"));
     });
 
 }
@@ -159,6 +172,7 @@ function submit() {
                 return;
             }
             var line = {
+                oluaId: $(this).attr("data-uaId"),
                 olPayMoney: $(this).find("input[name='olPayMoney']").val(),
                 olRemark: $(this).find("input[name='olRemark']").val()
             };
@@ -180,7 +194,13 @@ function submit() {
 
     $.post("/Outlay/AddOutlayInfo", { modelJson: JSON.stringify(OutlayInfoModel) }, function (data) {
         var result = eval("(" + data + ")");
-
+        if (result.state == "success") {
+            getOutlayList(10, 0, true);
+            $('#myModal').modal('hide');
+        }
+        else {
+            alert(result.content);
+        }
     });
 }
 
@@ -194,4 +214,24 @@ function checkData() {
         return false;
     }
     return true;
+}
+
+function deleteOutlayInfo() {
+    if (!confirm("是否删除选中信息?"))
+        return;
+    var oId = $(".list-group .active").attr("data-oId");
+    var parms = new Object();
+    parms["oId"] = oId;
+    $.post("/Outlay/DeleteOutlayInfo", parms, function (data) {
+        var result = eval("(" + data + ")");
+        if (result.state == "success") {
+            $(".list-group .active").slideToggle("slow", function () {
+                $(".list-group .active").remove();
+            });
+            hidEditPanel();
+        }
+        else {
+            alert(result.content);
+        }
+    })
 }
