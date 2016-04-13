@@ -98,6 +98,12 @@ namespace FlatShareMVC.Controllers
                         outlay.oUpdatedDate = DateTime.Now;
                         db.Outlay.Add(outlay);
                         db.SaveChanges();
+
+                        foreach (OutlayLine line in model.OutlayLines)
+                        {
+                            line.oloId = outlay.oId;
+                        }
+
                         scope.Complete();
                     }
 
