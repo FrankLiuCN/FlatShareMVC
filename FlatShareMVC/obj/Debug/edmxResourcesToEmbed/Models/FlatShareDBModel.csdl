@@ -58,5 +58,31 @@
     <EntitySet Name="OutlayLine" EntityType="Self.OutlayLine" />
     <EntitySet Name="PayItem" EntityType="Self.PayItem" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" />
+    <EntitySet Name="Settlement" EntityType="FlatShareModel.Settlement" />
+    <EntitySet Name="SettlementLine" EntityType="FlatShareModel.SettlementLine" />
   </EntityContainer>
+  <EntityType Name="Settlement">
+    <Key>
+      <PropertyRef Name="sId" />
+    </Key>
+    <Property Name="sId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sStartDate" Type="DateTime" Precision="0" />
+    <Property Name="sEndDate" Type="DateTime" Precision="0" />
+    <Property Name="sTotalCost" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sDeleted" Type="Boolean" />
+    <Property Name="sUpdatedBy" Type="Int32" />
+    <Property Name="sUpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SettlementLine">
+    <Key>
+      <PropertyRef Name="slId" />
+    </Key>
+    <Property Name="slId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="slsId" Type="Int32" />
+    <Property Name="sluaId" Type="Int32" />
+    <Property Name="sActuallyPay" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sPayable" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sBalance" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="sDeleted" Type="Boolean" />
+  </EntityType>
 </Schema>

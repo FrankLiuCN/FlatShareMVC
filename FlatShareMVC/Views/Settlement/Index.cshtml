@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Datepicker/datepicker.css" rel="stylesheet" />
+    <link href="~/css/PayItem.css" rel="stylesheet" />
+</head>
+<body>
+    <ul class="list-group"></ul>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true" style="width:320px;margin-left:auto;margin-right:auto;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        新增
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label>
+                                开始日期:
+                            </label>
+                            <input type="date" id="txtStartDate" class="datepicker form-control" data-date-format="yyyy-mm-dd" readonly="readonly" />
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label>
+                                    结束日期:
+                                </label>
+                                <input type="text" id="txtEndDate" class="datepicker form-control" data-date-format="yyyy-mm-dd" readonly="readonly" />
+                            </div>
+                        </div>
+                </div>
+                <div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                                data-dismiss="modal">
+                            关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="submit();">
+                            提交
+                        </button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+    <script src="/scripts/jquery-1.11.3.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/scripts/common.js"></script>
+    <script src="~/scripts/Settlement.js"></script>
+</body>
+</html>

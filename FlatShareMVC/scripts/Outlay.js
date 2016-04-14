@@ -8,6 +8,7 @@
     });
     $('.datepicker').datepicker();
     $('.datepicker').css("z-index", "9999");
+    parent.showAddButton();
 });
 function hidEditPanel() {
     $(".cover").removeClass("show");

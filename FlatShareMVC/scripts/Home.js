@@ -10,6 +10,7 @@ function logout() {
 }
 
 $(function () {
+    loginCheck(setUserName);
     $(".navbar-nav > li").click(function () {
         if ($(this).attr("data-code")) {
             $(this).siblings().removeClass("active");
@@ -25,8 +26,9 @@ $(function () {
                     win.addPayItem();
                 } else if (win.addOutlay) {
                     win.addOutlay();
-                }
-
+                } else if (win.addSettlement) {
+                    win.addSettlement();
+                }              
             });
             $(".navbar-title > span").html($(this)[0].innerText);
         }
@@ -46,4 +48,8 @@ $(function () {
 function setUserName(userName) {
     $("#lblUserName").html(userName);
 
+}
+
+function showAddButton() {
+    $("#btnHomeRight").show();
 }

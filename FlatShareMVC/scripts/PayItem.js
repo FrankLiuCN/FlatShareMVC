@@ -7,6 +7,8 @@ $(function () {
     //        alert("e");
     //    }
     //});
+    parent.showAddButton();
+
 });
 
 function getPayItemList() {

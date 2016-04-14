@@ -29,5 +29,7 @@ namespace FlatShareMVC.Models
         public virtual DbSet<OutlayLine> OutlayLine { get; set; }
         public virtual DbSet<PayItem> PayItem { get; set; }
         public virtual DbSet<UserAccount> UserAccount { get; set; }
+        public virtual DbSet<Settlement> Settlement { get; set; }
+        public virtual DbSet<SettlementLine> SettlementLine { get; set; }
     }
 }

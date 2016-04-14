@@ -38,6 +38,30 @@
     <Property Name="piUpdatedBy" Type="int" />
     <Property Name="piUpdatedDate" Type="datetime" />
   </EntityType>
+  <EntityType Name="Settlement">
+    <Key>
+      <PropertyRef Name="sId" />
+    </Key>
+    <Property Name="sId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sStartDate" Type="date" />
+    <Property Name="sEndDate" Type="date" />
+    <Property Name="sTotalCost" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sDeleted" Type="bit" />
+    <Property Name="sUpdatedBy" Type="int" />
+    <Property Name="sUpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SettlementLine">
+    <Key>
+      <PropertyRef Name="slId" />
+    </Key>
+    <Property Name="slId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slsId" Type="int" />
+    <Property Name="sluaId" Type="int" />
+    <Property Name="sActuallyPay" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sPayable" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sBalance" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="sDeleted" Type="bit" />
+  </EntityType>
   <EntityType Name="UserAccount">
     <Key>
       <PropertyRef Name="uaId" />
@@ -57,6 +81,8 @@
     <EntitySet Name="Outlay" EntityType="Self.Outlay" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OutlayLine" EntityType="Self.OutlayLine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PayItem" EntityType="Self.PayItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Settlement" EntityType="Self.Settlement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SettlementLine" EntityType="Self.SettlementLine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

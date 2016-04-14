@@ -10,6 +10,7 @@
     //        alert("e");
     //    }
     //});
+    parent.showAddButton();
 });
 
 function AddUser() {

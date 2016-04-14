@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="FlatShareModel.OutlayLine" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FlatShareModel.PayItem" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FlatShareModel.UserAccount" Width="1.5" PointX="6.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlatShareModel.Settlement" Width="1.5" PointX="1.125" PointY="3.875" />
+        <EntityTypeShape EntityType="FlatShareModel.SettlementLine" Width="1.5" PointX="3.125" PointY="3.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

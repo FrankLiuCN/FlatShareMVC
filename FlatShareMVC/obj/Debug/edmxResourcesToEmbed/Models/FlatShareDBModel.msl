@@ -58,5 +58,31 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Settlement">
+      <EntityTypeMapping TypeName="FlatShareModel.Settlement">
+        <MappingFragment StoreEntitySet="Settlement">
+          <ScalarProperty Name="sUpdatedDate" ColumnName="sUpdatedDate" />
+          <ScalarProperty Name="sUpdatedBy" ColumnName="sUpdatedBy" />
+          <ScalarProperty Name="sDeleted" ColumnName="sDeleted" />
+          <ScalarProperty Name="sTotalCost" ColumnName="sTotalCost" />
+          <ScalarProperty Name="sEndDate" ColumnName="sEndDate" />
+          <ScalarProperty Name="sStartDate" ColumnName="sStartDate" />
+          <ScalarProperty Name="sId" ColumnName="sId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SettlementLine">
+      <EntityTypeMapping TypeName="FlatShareModel.SettlementLine">
+        <MappingFragment StoreEntitySet="SettlementLine">
+          <ScalarProperty Name="sDeleted" ColumnName="sDeleted" />
+          <ScalarProperty Name="sBalance" ColumnName="sBalance" />
+          <ScalarProperty Name="sPayable" ColumnName="sPayable" />
+          <ScalarProperty Name="sActuallyPay" ColumnName="sActuallyPay" />
+          <ScalarProperty Name="sluaId" ColumnName="sluaId" />
+          <ScalarProperty Name="slsId" ColumnName="slsId" />
+          <ScalarProperty Name="slId" ColumnName="slId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

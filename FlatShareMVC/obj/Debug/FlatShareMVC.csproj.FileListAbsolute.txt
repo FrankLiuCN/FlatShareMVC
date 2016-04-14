@@ -62,5 +62,5 @@ C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\bin\System.Web.WebPages.Deployment
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\bin\System.Web.WebPages.Razor.xml
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.dll
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.pdb
-E:\GitProjects\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.csprojResolveAssemblyReference.cache
 C:\Frank\SourceCode\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.csprojResolveAssemblyReference.cache
+E:\GitProjects\FlatShareMVC\FlatShareMVC\obj\Debug\FlatShareMVC.csprojResolveAssemblyReference.cache

@@ -124,6 +124,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OutlayController.cs" />
     <Compile Include="Controllers\PayItemController.cs" />
+    <Compile Include="Controllers\SettlementController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -151,6 +152,12 @@
     </Compile>
     <Compile Include="Models\OutlayInfoModel.cs" />
     <Compile Include="Models\PayItem.cs">
+      <DependentUpon>FlatShareDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Settlement.cs">
+      <DependentUpon>FlatShareDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SettlementLine.cs">
       <DependentUpon>FlatShareDBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserAccount.cs">
@@ -189,6 +196,7 @@
     <Content Include="scripts\Login.js" />
     <Content Include="scripts\Outlay.js" />
     <Content Include="scripts\PayItem.js" />
+    <Content Include="scripts\Settlement.js" />
     <Content Include="scripts\UserAccount.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -251,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\PayItem\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Settlement\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
