@@ -1,0 +1,33 @@
+﻿
+.list-group li {
+    border-color: #808080;
+}
+
+.list-group .list-group-item .col-xs-6, .list-group .list-group-item .col-xs-12 {
+    padding: 0;
+}
+
+    .list-group .list-group-item .col-xs-6 > span {
+        display: inline-block;
+        font-weight: bold;
+        color: #333;
+    }
+
+.details {
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+
+    .details th {
+        background-color: #f8f8f8;
+        text-align: center;
+    }
+
+.list-group-item {
+    margin: 5px;
+}
+
+    .list-group-item > div {
+        padding: 5px 5px;
+    }
