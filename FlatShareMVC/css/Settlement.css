@@ -3,6 +3,20 @@
     border-color: #808080;
 }
 
+.list-group-item i {
+    color:#ff6a00;
+    cursor:pointer;
+    position:absolute;
+    top:0;
+    right:0;
+    display:block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    line-height:30px;
+    z-index:1002;
+}
+
 .list-group .list-group-item .col-xs-6, .list-group .list-group-item .col-xs-12 {
     padding: 0;
 }
@@ -31,3 +45,10 @@
     .list-group-item > div {
         padding: 5px 5px;
     }
+
+    @media screen and (min-width: 768px) {
+
+    .list-group {
+        margin: 5px 5px;
+    }
+}

@@ -1,12 +1,21 @@
 ﻿function openPage(pageCode) {
-    var iframeHeight = $(window).height() - $(".navbar").height();
     var src = "/" + pageCode + "/Index";
+    openIframe(src);
+}
+
+function openIframe(src) {
+    var iframeHeight = $(window).height() - $(".navbar").height();
     var content = '<iframe id="homeIframe" src="' + src + '" width="100%" height="' + iframeHeight + '" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling-x="no" scrolling-y="auto" allowtransparency="yes"></iframe>';
     $(".content-wrapper").html(content);
 }
 
 function logout() {
     window.location.href = "/UserAccount/Login";
+}
+
+function profile() {
+    var src = "/UserAccount/Profile";
+    openIframe(src);
 }
 
 $(function () {
@@ -28,7 +37,7 @@ $(function () {
                     win.addOutlay();
                 } else if (win.addSettlement) {
                     win.addSettlement();
-                }              
+                }
             });
             $(".navbar-title > span").html($(this)[0].innerText);
         }
@@ -52,4 +61,8 @@ function setUserName(userName) {
 
 function showAddButton() {
     $("#btnHomeRight").show();
+}
+
+function hideAddButton() {
+    $("#btnHomeRight").hide();
 }

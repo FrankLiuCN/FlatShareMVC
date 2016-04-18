@@ -87,7 +87,7 @@ namespace FlatShareMVC.Controllers
             try
             {
                 OutlayInfoModel model = JsonConvert.DeserializeObject<OutlayInfoModel>(modelJson);
-                if (HttpContext.User.Identity.IsAuthenticated)
+                if (Session["CurrentUser"] != null)
                 {
                     UserAccount currentUser = Session["CurrentUser"] as UserAccount;
                     using (TransactionScope scope = new TransactionScope())
@@ -125,7 +125,7 @@ namespace FlatShareMVC.Controllers
 
         public ActionResult DeleteOutlayInfo(int oId)
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
                 using (TransactionScope scope = new TransactionScope())
                 {

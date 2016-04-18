@@ -1,9 +1,5 @@
 ﻿$(function () {
-    //$(document).on('scroll', function (e) {
-    //    if ($(e.target).scrollTop() >= $(document).height() - $(window).height()) {
-    //        alert("e");
-    //    }
-    //});
+
     getSettlementInfoList();
     $('.datepicker').datepicker();
     $('.datepicker').css("z-index", "9999");
@@ -16,8 +12,9 @@ function getSettlementInfoList() {
         var result = eval("(" + data + ")");
         var html = '';
         for (var i = 0; i < result.length; i++) {
-            html += '<li class="list-group-item" data-piId="' + result[i].SettlementInfo.sId + '">';
-            html += ' <div class="row">';
+            html += '<li class="list-group-item" data-sId="' + result[i].SettlementInfo.sId + '">';
+            html += '<i class="glyphicon glyphicon-remove"></i>';
+            html += '<div class="row">';
             html += '<div class="col-xs-6">';
             html += '<span>开始日期 : </span> ' + result[i].SettlementInfo.sStartDate.replace("T00:00:00", "");
             html += '</div>';
@@ -46,7 +43,7 @@ function getSettlementInfoList() {
             html += '</thead>';
             html += '<tbody>';
             for (var j = 0; j < result[i].SettlementLineInfos.length; j++) {
-                var temp=result[i].SettlementLineInfos[j];
+                var temp = result[i].SettlementLineInfos[j];
                 html += '<tr>';
                 html += '<td>' + temp.uaUserName + '</td>';
                 html += '<td>' + temp.sPayable + '</td>';
@@ -62,6 +59,10 @@ function getSettlementInfoList() {
         }
         html += '<li style="clear:both;height:1px;"></li>';
         $(".list-group").html(html);
+
+        $(".list-group-item i").click(function () {
+            deleteSettlement(this);
+        });
     });
 }
 
@@ -86,4 +87,23 @@ function submit() {
         }
     });
 
+}
+
+function deleteSettlement(obj) {
+    if (!confirm("是否删除此记录?"))
+        return;
+    var sId = $(obj).parent().attr("data-sId");
+    var parms = new Object();
+    parms["sId"] = sId;
+    $.post("/Settlement/DeletedSettlementInfo", parms, function (data) {
+        var result = eval("(" + data + ")");
+        if (result.state == "success") {
+            $(obj).parent().slideToggle("slow", function () {
+                $(obj).parent().remove();
+            });
+        }
+        else {
+            alert(result.content);
+        }
+    })
 }

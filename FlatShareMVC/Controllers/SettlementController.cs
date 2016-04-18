@@ -19,6 +19,42 @@ namespace FlatShareMVC.Controllers
             return View();
         }
 
+
+        public ActionResult DeletedSettlementInfo(int sId)
+        {
+            if (Session["CurrentUser"] != null)
+            {
+                try
+                {
+                    UserAccount currentUser = Session["CurrentUser"] as UserAccount;
+                    using (TransactionScope scope = new TransactionScope())
+                    {
+                        Settlement settlement = db.Settlement.Where(s => s.sId == sId).SingleOrDefault();
+                        settlement.sDeleted = true;
+                        settlement.sUpdatedBy = currentUser.uaId;
+                        settlement.sUpdatedDate = DateTime.Now;
+
+                        db.SettlementLine.Where(sl => sl.slsId == sId).ToList().ForEach(item => {
+                            item.sDeleted = true;
+                        });
+
+                        db.SaveChanges();
+
+                        scope.Complete();
+                    }
+
+                    return AjaxResult("success", "删除成功");
+                }
+                catch (Exception ex)
+                {
+                return AjaxResult("error", ex.Message);
+                }
+            }
+            else
+            {
+                return AjaxResult("error", "未登陆");
+            }
+        }
         public ActionResult GetSettlementInfoList()
         {
             List<SettlementInfoModel> modelList = new List<SettlementInfoModel>();
@@ -48,7 +84,7 @@ namespace FlatShareMVC.Controllers
         }
         public ActionResult GenerateSettlement(DateTime start, DateTime end)
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
 
                 using (TransactionScope scope = new TransactionScope())
@@ -90,7 +126,7 @@ namespace FlatShareMVC.Controllers
                     }
                     scope.Complete();
                 }
-                return AjaxResult("success", "修改成功");
+                return AjaxResult("success", "添加成功");
             }
             else
             {

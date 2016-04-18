@@ -26,7 +26,7 @@ namespace FlatShareMVC.Controllers
 
         public ActionResult EditPayItem(PayItem payItem)
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
                 if (!ModelState.IsValid)
                     return AjaxResult("error", "数据格式不正确");
@@ -50,7 +50,7 @@ namespace FlatShareMVC.Controllers
 
         public ActionResult AddPayItem(PayItem payItem)
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
                 if (!ModelState.IsValid)
                     return AjaxResult("error", "数据格式不正确");
@@ -73,7 +73,7 @@ namespace FlatShareMVC.Controllers
 
         public ActionResult DeletePayItem(int piId)
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
                 PayItem temp = db.PayItem.Where(u => u.piId == piId).SingleOrDefault();
                 UserAccount currentUser = Session["CurrentUser"] as UserAccount;

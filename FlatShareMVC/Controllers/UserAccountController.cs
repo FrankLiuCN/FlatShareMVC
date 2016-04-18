@@ -24,6 +24,11 @@ namespace FlatShareMVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Profile()
+        {
+            return View();
+        }
         public ActionResult LoginVerify(string userName, string password, bool remember)
         {
             UserAccount account = db.UserAccount.Where(u => u.uaLoginName == userName && u.uaPassword == password && u.uaDeleted != true).SingleOrDefault();
@@ -39,7 +44,6 @@ namespace FlatShareMVC.Controllers
                         Utils.SetLoginInfoCookie(account, 30);
                     else
                         Utils.RemoveLoginInfoCookie();
-                    System.Web.Security.FormsAuthentication.SetAuthCookie(account.uaUserName, false);
                     Session["CurrentUser"] = account;
                     return AjaxResult("success", "登录成功");
                 }
@@ -53,9 +57,25 @@ namespace FlatShareMVC.Controllers
 
         public ActionResult LoginCheck()
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
-                return AjaxResult("success", HttpContext.User.Identity.Name);
+                UserAccount account = Session["CurrentUser"] as UserAccount;
+                return AjaxResult("success", account.uaUserName);
+            }
+            else
+            {
+                return AjaxResult("error", "未登陆");
+            }
+
+        }
+
+        public ActionResult GetUserInfo()
+        {
+            if (Session["CurrentUser"] != null)
+            {
+                UserAccount account = Session["CurrentUser"] as UserAccount;
+                return Content(JsonConvert.SerializeObject(account));
+
             }
             else
             {
@@ -71,7 +91,7 @@ namespace FlatShareMVC.Controllers
 
         public ActionResult EditUser(UserAccount account)
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
                 if (!ModelState.IsValid)
                     return AjaxResult("error", "数据格式不正确");
@@ -91,9 +111,35 @@ namespace FlatShareMVC.Controllers
             }
         }
 
+        public ActionResult ModifyPassword(string oldPassword, string newPassword)
+        {
+            if (Session["CurrentUser"] != null)
+            {
+                UserAccount currentUser = Session["CurrentUser"] as UserAccount;
+                if (currentUser.uaPassword == oldPassword)
+                {
+                    currentUser.uaPassword = newPassword;
+                    currentUser.uaUpdatedBy = currentUser.uaId;
+                    currentUser.uaUpdatedDate = DateTime.Now;
+                    db.Entry(currentUser).State = EntityState.Modified;
+                    db.SaveChanges();
+                    Session["CurrentUser"] = currentUser;
+                    return AjaxResult("success", "修改成功");
+                }
+                else
+                {
+                    return AjaxResult("error", "旧密码不正确");
+                }
+            }
+            else
+            {
+                return AjaxResult("error", "未登陆");
+            }
+        }
+
         public ActionResult AddUser(UserAccount account)
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
                 if (!ModelState.IsValid)
                     return AjaxResult("error", "数据格式不正确");
@@ -117,7 +163,7 @@ namespace FlatShareMVC.Controllers
 
         public ActionResult DeleteUser(int uaId)
         {
-            if (HttpContext.User.Identity.IsAuthenticated)
+            if (Session["CurrentUser"] != null)
             {
                 UserAccount temp = db.UserAccount.Where(u => u.uaId == uaId).SingleOrDefault();
                 UserAccount currentUser = Session["CurrentUser"] as UserAccount;

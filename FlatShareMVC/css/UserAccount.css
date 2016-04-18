@@ -26,6 +26,10 @@
             width: 72px;
             font-weight: bold;
         }
+.panel .panel-body table th, .panel .panel-body table td {
+    padding:5px;
+}
+
 
 @media screen and (max-width: 767px) {
     .list-group > div > div {
@@ -42,6 +46,10 @@
 
     .btn-group-justified > button:first-child {
         display: none;
+    }
+
+        .panel {
+        margin: 10px 5px;
     }
 }
 
@@ -84,5 +92,9 @@
     .list-group {
         margin: 5px 10px;
         border: 1px solid #e7e7e7;
+    }
+
+    .panel {
+        margin: 10px 15px;
     }
 }

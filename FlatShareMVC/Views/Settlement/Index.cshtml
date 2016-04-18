@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Datepicker/datepicker.css" rel="stylesheet" />
+    <link href="~/css/Common.css" rel="stylesheet" />
     <link href="~/css/Settlement.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="btn-group btn-group-justified" role="group">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" onclick="addSettlement()">添加</button>
+        </div>
+    </div>
     <ul class="list-group">
 
     </ul>
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true" style="width:320px;margin-left:auto;margin-right:auto;">
+         aria-labelledby="myModalLabel" aria-hidden="true" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -31,7 +37,7 @@
                             <label>
                                 开始日期:
                             </label>
-                            <input type="date" id="txtStartDate" class="datepicker form-control" data-date-format="yyyy-mm-dd" readonly="readonly" />
+                            <input type="text" id="txtStartDate" class="datepicker form-control" data-date-format="yyyy-mm-dd" readonly="readonly" />
                         </div>
                     </div>
                         <div class="row">

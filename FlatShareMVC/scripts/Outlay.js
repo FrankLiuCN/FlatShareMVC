@@ -1,5 +1,5 @@
 ﻿$(function () {
-    getOutlayList(10, 0, true);
+    getOutlayList(pageSize, pageNum, true);
     getPayItemList();
     getUserList();
     $(".cover").click(function () {
@@ -9,7 +9,18 @@
     $('.datepicker').datepicker();
     $('.datepicker').css("z-index", "9999");
     parent.showAddButton();
+
+    $(document).on('scroll', function (e) {
+        if ($(e.target).scrollTop() >= $(document).height() - $(window).height()) {
+            pageNum++;
+            getOutlayList(pageSize, pageNum, false);
+        }
+    });
 });
+
+var pageNum = 0;
+var pageSize = 10;
+
 function hidEditPanel() {
     $(".cover").removeClass("show");
     $(".btn-group-justified").removeClass("show");

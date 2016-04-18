@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/UserAccount.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table>
+                <tr><th>登陆名：</th><td><input type="text" class="form-control" readonly="readonly" id="txtLoginName" /></td></tr>
+                <tr><th>姓名：</th><td><input type="text" class="form-control" readonly="readonly" id="txtUserName" /></td></tr>
+                <tr><th>手机号：</th><td><input type="text" class="form-control" readonly="readonly" id="txtPhone" /></td></tr>
+                <tr><th>旧密码：</th><td><input type="password" class="form-control" id="txtOldPassword" /></td></tr>
+                <tr><th>新密码：</th><td><input type="password" class="form-control" id="txtNewPassword" /></td></tr>
+                <tr><th>确认密码：</th><td><input type="password" class="form-control" id="txtConfirmPassword" /></td></tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="btn btn-default" onclick="modfiyPassword()">修改密码</button>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <script src="/scripts/jquery-1.11.3.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/scripts/Profile.js"></script>
+</body>
+</html>
